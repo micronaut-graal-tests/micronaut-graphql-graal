@@ -1,16 +1,26 @@
-## Micronaut 2.5.4 Documentation
+# Micronaut GraphQL Graal
 
-- [User Guide](https://docs.micronaut.io/2.5.4/guide/index.html)
-- [API Reference](https://docs.micronaut.io/2.5.4/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/2.5.4/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+Test application for Micronaut GraphQL and GraalVM.
 
-## Feature http-client documentation
+To test the application:
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+```
+curl -X POST 'http://localhost:8080/graphql' \
+               -H 'content-type: application/json' \
+               --data-binary '{"query":"{ bookById(id:\"book-1\") { name, pageCount, author { firstName, lastName} }  }"}'
+```
 
-## Feature graphql documentation
+Or open http://localhost:8080/graphiql and send the query:
 
-- [Micronaut GraphQL documentation](https://micronaut-projects.github.io/micronaut-graphql/latest/guide/index.html)
-
+```graphql
+query {
+    bookById(id:"book-1") {
+        name,
+        pageCount,
+        author {
+            firstName
+            lastName
+        },
+    }
+}
+```
