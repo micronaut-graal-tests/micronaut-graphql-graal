@@ -1,3 +1,3 @@
 #!/bin/bash
-./gradlew nativeImage
-cp build/native-image/graphql .
+./gradlew nativeCompile
+cp build/native/nativeCompile/graphql .
